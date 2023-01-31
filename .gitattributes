@@ -1,0 +1,5 @@
+models/frcnn_100_epochs_yahoo.model filter=lfs diff=lfs merge=lfs -text
+models/weirulesV6c-yahoo-r54-bt.model filter=lfs diff=lfs merge=lfs -text
+models/df_frcnn_100e_yahoo_test.pickle filter=lfs diff=lfs merge=lfs -text
+models/df_frcnn_100e_yahoo_train.pickle filter=lfs diff=lfs merge=lfs -text
+models/weirulesV6c-yahoo-r54-bt.pkl filter=lfs diff=lfs merge=lfs -text
