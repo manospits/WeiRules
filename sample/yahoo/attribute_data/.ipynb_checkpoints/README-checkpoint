@@ -1,0 +1,25 @@
+This dataset contains the annotations used in: 
+   A. Farhadi, I. Endres, D. Hoiem, and D.A. Forsyth,  ``Describing Objects by their Attributes'', CVPR 2009. 
+
+There are three components to the dataset:
+   Annotations (included here):  The attribute annotations for the aPascal train and test sets, and aYahoo test set.
+   aYahoo images: Our images collected from Yahoo
+      Download from - vision.cs.uiuc.edu/attributes/ayahoo_test_images.tar.gz
+   aPascal images: These are the images from the Pascal VOC 2008.  NOTE: Our training set corresponds to the VOC2008 train set, and our test set corresponds to the VOC2008 validation set.
+      Download from - http://pascallin.ecs.soton.ac.uk/challenges/VOC/voc2008/
+
+
+The annotations are split into the three sections:
+   apascal_train.txt, apascal_test.txt, ayahoo_test.txt
+
+   The format of the files is as follows:
+   <img_name> <image_class> <bbox> <attributes>
+   
+   Each line corresponds to an object in the set, and each element in the line is separated by a space (a MATLAB function read_att_data.m is included to read the annotations).
+
+   Fields:  <img_names> Filename corresponding to each object's image
+            <img_classes> Class name for each object
+            <bbox> list of 4 integers of the object's bounding box - [xmin ymin xmax ymax] 
+            <attributes> list of 64 binary attributes
+               Attribute names can be found in attribute_names.txt
+
