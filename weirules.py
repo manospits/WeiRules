@@ -308,6 +308,24 @@ class weirules():
                     else:
                         self.all_comps[class_value].append(comp)
             self.rule_lens.append(cond_lens)
+        
+    def get_fuzzified_rule_str(self, class_name):
+        class_model=self.rulesets[class_name]
+        weights=F.softmax(self.model.ors[class_name].weight,dim=1)
+        rule='IF\n\t'
+        w_index=0
+        conds=[]
+        cu_cond=f"{weights[0][w_index]} * ("
+        for cond in class_model:
+            comps=[f"{comp[0]} {comp[1]} {comp[2]}" for comp in cond]
+            comp_str=" AND' ".join(comps)
+            conds.append(cu_cond+comp_str+')')
+        rule+="\n\t OR' ".join(conds)
+        rule+=f"\nTHEN {class_name}"
+        return rule
+                
+            
+        
     
     
     def create_network(self, rho=14):

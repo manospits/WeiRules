@@ -319,9 +319,8 @@ def extract_df(model, generator):
         del local_labels
         
     return all_df
+##############################################
 
-
-############################################################
 def is_dist_avail_and_initialized():
     if not dist.is_available():
         return False
