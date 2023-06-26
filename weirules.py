@@ -315,11 +315,12 @@ class weirules():
         rule='IF\n\t'
         w_index=0
         conds=[]
-        cu_cond=f"{weights[0][w_index]} * ("
         for cond in class_model:
+            cu_cond=f"{weights[0][w_index]} * ("
             comps=[f"{comp[0]} {comp[1]} {comp[2]}" for comp in cond]
             comp_str=" AND' ".join(comps)
             conds.append(cu_cond+comp_str+')')
+            w_index+=1
         rule+="\n\t OR' ".join(conds)
         rule+=f"\nTHEN {class_name}"
         return rule
